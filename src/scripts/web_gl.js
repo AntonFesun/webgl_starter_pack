@@ -70,7 +70,7 @@ function createProgram(gl, vertexShader, fragmentShader) {}
 
 function createProjectionMatrix(scale, tx, ty) {}
 
-async function main() {
+function main() {
     // We are going to do some magic here;
 }
 
