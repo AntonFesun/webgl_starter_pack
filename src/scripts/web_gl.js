@@ -1,3 +1,5 @@
+console.log("=D");
+
 const vertexShaderUrl = "../scripts/shaders/vertex.glsl";
 const fragmentShaderUrl = "../scripts/shaders/fragment.glsl";
 
@@ -68,6 +70,8 @@ function createProgram(gl, vertexShader, fragmentShader) {}
 
 function createProjectionMatrix(scale, tx, ty) {}
 
-async function main() {}
+async function main() {
+    // We are going to do some magic here;
+}
 
 window.onload = main;
