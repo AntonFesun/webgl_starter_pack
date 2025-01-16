@@ -103,8 +103,6 @@ function main() {
     });
 
     updateScene();
-    const timeEnd = performance.now();
-    console.log(timeEnd - timeStart);
 }
 
 window.onload = main;

@@ -1,4 +1,4 @@
-import {getRandomColorHex} from "./color_helpers.js";
+import {getRandomColorHex, hexToRgb} from "./color_helpers.js";
 
 export const numPoints = 2_000_000;
 
@@ -23,8 +23,20 @@ export function generatePointsAndColors(numPoints) {
 
 export function prepareWebGLData() {
     const points = generatePointsAndColors(numPoints);
-    let positions;
-    let colors;
+    let positions = new Float32Array(points.length * 2);
+    let colors = new Float32Array(points.length * 3);
+
+    points.forEach((point, index) => {
+        positions[index * 2] = point.x;
+        positions[index * 2 + 1] = point.y;
+
+        const [r, g, b] = hexToRgb(point.color);
+
+        colors[index * 3] = r;
+        colors[index * 3 + 1] = g;
+        colors[index * 3 + 1] = b;
+    });
+
 
     return {positions, colors};
 }
