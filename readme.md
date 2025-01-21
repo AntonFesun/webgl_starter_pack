@@ -1,3 +1,5 @@
+You need to have pre-installed Node.js and npm to run this project. You can download them from [here](https://nodejs.org/en/).
+
 Useful links:
 To see some incredible examples of what can be done with WebGl, check out the [Shadertoy](https://www.shadertoy.com/).
 
