@@ -7,61 +7,13 @@ const fragmentShaderUrl = "../scripts/shaders/fragment.glsl";
 
 const { positions, colors } = prepareWebGLData();
 
-function initWebGL(canvas) {
-    const gl = canvas.getContext("webgl");
+function initWebGL(canvas) {}
 
-    if (!gl) {
-        console.error("WebGL not supported");
-        return null;
-    }
+function createShader(gl, type, source) {}
 
-    canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
+function createProgram(gl, vertexShader, fragmentShader) {}
 
-    gl.viewport(0, 0, canvas.width, canvas.height);
-
-    return gl;
-}
-
-function createShader(gl, type, source) {
-    const shader = gl.createShader(type);
-
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
-
-    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error("Compilation shader error");
-        return null;
-    }
-
-    console.log(gl.getShaderInfoLog(shader));
-    return shader;
-}
-
-function createProgram(gl, vertexShader, fragmentShader) {
-    const program = gl.createProgram();
-
-    gl.attachShader(program, vertexShader);
-    gl.attachShader(program, fragmentShader);
-    gl.linkProgram(program);
-
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.log("Link error program");
-        gl.deleteProgram(program);
-        return null;
-    }
-
-    return program;
-}
-
-function createProjectionMatrix(scale, tx, ty) {
-    return new Float32Array([
-        scale, 0, 0, 0,
-        0, scale, 0, 0,
-        0, 0, 1, 0,
-        tx, ty, 0, 1
-    ]);
-}
+function createProjectionMatrix(scale, tx, ty) {}
 
 function fetchShader(url) {
     return fetch(url).then(response => response.text());
