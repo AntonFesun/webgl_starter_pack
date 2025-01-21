@@ -42,7 +42,9 @@ function drawScene(ctx, matrix) {
     positions.forEach(pos => {
         const x = pos.x * (ctx.canvas.width / 2);
         const y = pos.y * (ctx.canvas.height / 2);
-        ctx.fillRect(x, y, 1, 1);
+        ctx.beginPath();
+        ctx.arc(x, y, .1, 0, 2 * Math.PI);
+        ctx.fill();
     });
 
     ctx.restore();
